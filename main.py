@@ -9,6 +9,7 @@ parallel_compute_command = 'qsub -b y -l gpu -l h_vmem=32G -cwd -o ${outputDir}/
 currentOutputFolder = './outputDir/0/' # the output directory for a single fold
 parallel_compute_command_actual = parallel_compute_command.replace('${outputDir}', currentOutputFolder)
 
+print(parallel_compute_command_actual)
 command = parallel_compute_command_actual + ' python -m ./sleep.py' # construct the command to call
 
 subprocess.Popen(command, shell=True).wait() # call the command
